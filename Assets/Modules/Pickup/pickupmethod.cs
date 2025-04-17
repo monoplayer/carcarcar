@@ -58,11 +58,11 @@ public class pickupmethod : MonoBehaviour
             {
                 HandleHoldingObjectOnXiaoche();
             }
-            else if (pickupController.IsHoldingObject && hitObject.name == "机械小车未完成" && ObjectDataManager.Instance.GetData(pickupController.heldObject.name).canBemakeup)
+            else if (pickupController.IsHoldingObject && hitObject.name == "新能源小车未完成" && ObjectDataManager.Instance.GetData(pickupController.heldObject.name).canBemakeup)
             {
                 HandleAssembling();
             }
-            else if (!pickupController.IsHoldingObject && hitObject.name == "机械小车未完成")
+            else if (!pickupController.IsHoldingObject && hitObject.name == "新能源小车未完成")
             {
                 HandleDismantling();
             }
@@ -142,7 +142,7 @@ public class pickupmethod : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             OnPickupX();
-            assemble1.HideGameObjects.Add(hitObject);
+            //assemble1.HideGameObjects.Add(hitObject);
         }
     }
     void CheckPutDownInput()
@@ -159,6 +159,7 @@ public class pickupmethod : MonoBehaviour
         {
             assemble1.assemble(pickupController.heldObject);
         }
+        ;
     }
 
     void CheckDismantleInput()

@@ -18,6 +18,9 @@ public class Assemble : MonoBehaviour
     public List<GameObject> HideGameObjects = new List<GameObject>();  // 声明一个 public 的 GameObject 列表，用于存储隐藏的游戏对象
     public bool haveassmble = false;
     public CarController carController;
+    public Text lingjian;
+    public bool islingjian = false;
+    private int i = 0;
     void Start()
     {
         // 此方法在脚本实例被启用时调用，当前为空
@@ -31,10 +34,6 @@ public class Assemble : MonoBehaviour
         // 此方法在每一帧调用，当前为空
     }
 
-    /// <summary>
-    /// 组装指定的汽车部件
-    /// </summary>
-    /// <param name="car">要组装的汽车部件的游戏对象</param>
     public void assemble(GameObject car)
     {
         car.transform.parent = null;  // 将汽车部件的父对象设置为 null
@@ -54,6 +53,9 @@ public class Assemble : MonoBehaviour
                     pickupmethod1.istulun = true;  // 标记凸轮已安装
                     car.SetActive(false);  // 隐藏当前汽车部件
                     pickupController.heldObject = null;  // 清空拾取控制器当前持有对象
+                    HideGameObjects.Add(car);
+                   lingjian.text += " " +car.name.ToString(); ;
+                       
                 }
                 break;
             case "塑料凸轮":
@@ -67,6 +69,8 @@ public class Assemble : MonoBehaviour
                     pickupController.heldObject = null;  // 清空拾取控制器当前持有对象
                     pickupmethod1.istulun = true;  // 标记凸轮已安装
                     car.SetActive(false);  // 隐藏当前汽车部件
+                    HideGameObjects.Add(car);
+                    lingjian.text += " " + car.name.ToString(); ;
                 }
                 break;
             case "金属车轮":
@@ -80,6 +84,8 @@ public class Assemble : MonoBehaviour
                     xiaochedate1.totalwending += lingjiandate1.C[1].wending;  // 增加总稳定性
                     pickupController.heldObject = null;  // 清空拾取控制器当前持有对象
                     car.SetActive(false);  // 隐藏当前汽车部件
+                    HideGameObjects.Add(car);
+                    lingjian.text += " " + car.name.ToString(); ;
                 }
                 break;
             case "塑料车轮":
@@ -92,6 +98,8 @@ public class Assemble : MonoBehaviour
                     xiaochedate1.totalwending += lingjiandate1.C[0].wending;  // 增加总稳定性
                     pickupController.heldObject = null;  // 清空拾取控制器当前持有对象
                     car.SetActive(false);  // 隐藏当前汽车部件
+                    HideGameObjects.Add(car);
+                    lingjian.text += " " + car.name.ToString(); ;
                 }
                 break;
             case "金属底座":
@@ -104,6 +112,8 @@ public class Assemble : MonoBehaviour
                     xiaochedate1.totalwending += lingjiandate1.C[5].wending;  // 增加总稳定性
                     pickupController.heldObject = null;  // 清空拾取控制器当前持有对象
                     car.SetActive(false);  // 隐藏当前汽车部件
+                    HideGameObjects.Add(car);
+                    lingjian.text += " " + car.name.ToString(); ;
                 }
                 break;
             case "塑料底座":
@@ -116,6 +126,8 @@ public class Assemble : MonoBehaviour
                     xiaochedate1.totalwending += lingjiandate1.C[4].wending;  // 增加总稳定性
                     pickupController.heldObject = null;  // 清空拾取控制器当前持有对象
                     car.SetActive(false);  // 隐藏当前汽车部件
+                    HideGameObjects.Add(car);
+                    lingjian.text += " " + car.name.ToString(); ;
                 }
                 break;
         }
@@ -144,6 +156,8 @@ public class Assemble : MonoBehaviour
             }
             dizuo.SetActive(false);  // 隐藏底座
             HideGameObjects.Remove(foundObject);  // 从隐藏对象列表中移除找到的对象
+            islingjian = false;
+            lingjian.text = "使用零件:";
         }
         else
         {
@@ -174,6 +188,8 @@ public class Assemble : MonoBehaviour
             }
             chelun.SetActive(false);  // 隐藏车轮
             HideGameObjects.Remove(foundObject);  // 从隐藏对象列表中移除找到的对象
+            islingjian = false;
+            lingjian.text = "使用零件:";
         }
         else
         {
@@ -206,6 +222,8 @@ public class Assemble : MonoBehaviour
             tulun1.SetActive(false);  // 隐藏凸轮1
             tulun2.SetActive(false);  // 隐藏凸轮2
             HideGameObjects.Remove(foundObject);  // 从隐藏对象列表中移除找到的对象
+            islingjian = false;
+            lingjian.text = "使用零件:";
         }
         else
         {

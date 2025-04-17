@@ -16,7 +16,7 @@ MonoBehaviour:
   canBeHighlighted: 1
   highlightColor: {r: 1, g: 0, b: 0, a: 1}
   showUI: 1
-  uiPrefab: {fileID: 5972089719907551053, guid: e977cbbbb0c7fba418fe0e8ad1f275bf, type: 3}
+  uiPrefab: {fileID: 0}
   canBePickedUp: 1
   canBemakeup: 0
   weight: 0
@@ -24,4 +24,4 @@ MonoBehaviour:
   isshowed: 1
   havebeenpicked: 0
   havebeenprinted: 0
-  havebeenqiege: 0
+  havebeenqiege: 1

@@ -113,7 +113,7 @@ public class CollisionDetection : MonoBehaviour
     public IEnumerator waitfornextanimation()
     {
         TaskManager taskManager = TaskManager.Instance;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         taskManager.taskDisplay.firstIncompleteTask = taskManager.tasks[1];
         currentTaskIndex = 1;
         aistart.SetActive(true);
