@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class TaskCompletionOnTrigger : MonoBehaviour
 {
+    // 新增UI物体变量
+    public GameObject completionUI; // 任务完成提示UI
+    
     // 用于指定要完成的任务 ID
     public string targetTaskId;
     // 标志位，用于判断任务是否已经完成
@@ -61,7 +64,23 @@ public class TaskCompletionOnTrigger : MonoBehaviour
         {
             CompleteTask();
             havefinished = true;
-            taskDisplay.taskText2.text += "(已完成)".ToString();
+            taskDisplay.taskText2.text += "(已完成)\n前往寻找老师".ToString();
+            
+            // 新增UI显示逻辑
+            if(completionUI != null)
+            {
+                completionUI.SetActive(true);
+                Invoke("HideCompletionUI", 8f); // 8秒后隐藏UI
+            }
+        }
+    }
+
+    // 新增方法：隐藏完成UI
+    private void HideCompletionUI()
+    {
+        if(completionUI != null)
+        {
+            completionUI.SetActive(false);
         }
     }
     private void OnTriggerEnter(Collider other)

@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using RoadIndicator; 
 
 public class TaskDisplay : MonoBehaviour
 {
@@ -54,6 +55,11 @@ public class TaskDisplay : MonoBehaviour
 
             if (firstIncompleteTask != null)
             {
+                // 触发路径引导
+                if(!string.IsNullOrEmpty(firstIncompleteTask.targetLocationID))
+                {
+                    RoadIndicatorManager.SetIndicator(firstIncompleteTask.targetLocationID);
+                }
                 // 显示任务描述
                 taskText.text = firstIncompleteTask.description;
                 tipText.text = firstIncompleteTask.description;

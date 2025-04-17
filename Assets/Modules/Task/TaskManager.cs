@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using RoadIndicator; 
 
 public class TaskManager : MonoBehaviour
 {
@@ -60,4 +61,15 @@ public class TaskManager : MonoBehaviour
             taskDisplay.HideTipUI();
         }
     }
+
+    public void ActivateTask(Task task)
+    {
+        // 添加路径引导
+        if(!string.IsNullOrEmpty(task.targetLocationID))
+        {
+            RoadIndicatorManager.SetIndicator(task.targetLocationID);
+        }
+    }
+
+
 }

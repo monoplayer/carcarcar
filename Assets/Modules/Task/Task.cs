@@ -7,6 +7,7 @@ public class Task
     public string description;
     public bool iscollider;
     public bool isCompleted;
+    public string targetLocationID; // 新增：目标地点ID
     
     public Task(string id, string description)
     {
