@@ -33,6 +33,9 @@ public class TaskManager : MonoBehaviour
             {
                 task.isCompleted = true;
                 //taskDisplay.taskText.text +="(已完成)".ToString();
+                // 检查是否是最后一个任务
+                // 设置指向老师的引导
+                RoadIndicatorManager.SetIndicator("laoshi");
                 break;
                 //打印数据
                 Debug.Log("任务已完成：" + task.id + " " + task.description + " " + task.isCompleted);
