@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using StarterAssets;
+
 
 public class MainMenuController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {

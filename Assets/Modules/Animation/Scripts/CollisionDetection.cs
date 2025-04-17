@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
-using StarterAssets;
 using UnityEngine.Timeline;
 using UnityEngine.UI;
 using Cinemachine;
